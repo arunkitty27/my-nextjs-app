@@ -25,7 +25,7 @@ export default function LocationFooter() {
                                     PULL UP <br /> <span className="text-gold">TO THE SPOT</span>
                                 </h2>
                                 <a
-                                    href="https://maps.google.com"
+                                    href="https://www.google.com/maps/search/Surapana+Teacafe+Nagarbhavi+Bangalore"
                                     target="_blank"
                                     className="inline-flex items-center gap-3 bg-gold text-[#3E0014] px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors duration-300 group"
                                 >
