@@ -2,7 +2,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  scroll-padding-top: 80px;
+  /* Account for fixed navbar */
 }
+
+* {
+  scroll-behavior: smooth;
+}
+
 
 @theme {
   --color-canvas: #12100E;
@@ -28,6 +37,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 /* FILM GRAIN OVERLAY for Aesthetic */
@@ -265,4 +276,180 @@ img {
   font-size: 9px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .parallax-container {
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  .minimap {
+    width: 95vw;
+    max-width: 500px;
+    height: 300px;
+  }
+
+  .minimap-img-item {
+    height: 300px;
+  }
+
+  .minimap-img-item img {
+    width: 220px;
+    height: 150px;
+  }
+
+  .minimap-item-info {
+    height: 300px;
+    padding: 20px 30px;
+  }
+
+  .info-row-top .title {
+    font-size: 16px;
+    max-width: 180px;
+  }
+
+  .info-row-top {
+    font-size: 11px;
+  }
+
+  .info-row-mid {
+    font-size: 9px;
+  }
+
+  .info-row-bot {
+    font-size: 11px;
+  }
+
+  .info-row-bot .desc {
+    max-width: 160px;
+    font-size: 11px;
+  }
+
+  .info-row-bot .next-hint {
+    font-size: 7px;
+  }
+
+  /* Text scaling for better readability */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 0 0.75rem;
+  }
+
+  .minimap {
+    width: 90vw;
+    height: 250px;
+  }
+
+  .minimap-img-item {
+    height: 250px;
+  }
+
+  .minimap-img-item img {
+    width: 160px;
+    height: 110px;
+  }
+
+  .minimap-item-info {
+    height: 250px;
+    padding: 15px 20px;
+  }
+
+  .info-row-top .title {
+    font-size: 13px;
+    max-width: 120px;
+  }
+
+  .info-row-top {
+    font-size: 9px;
+  }
+
+  .info-row-mid {
+    font-size: 8px;
+  }
+
+  .info-row-bot {
+    font-size: 10px;
+  }
+
+  .info-row-bot .desc {
+    max-width: 110px;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .info-row-bot .next-hint {
+    font-size: 6px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .page-container {
+    padding: 0 0.5rem;
+  }
+
+  .minimap {
+    width: 95vw;
+    height: 220px;
+  }
+
+  .minimap-img-item {
+    height: 220px;
+  }
+
+  .minimap-img-item img {
+    width: 140px;
+    height: 95px;
+  }
+
+  .minimap-item-info {
+    height: 220px;
+    padding: 12px 15px;
+  }
+
+  .info-row-top .title {
+    font-size: 12px;
+    max-width: 100px;
+  }
+
+  .info-row-top {
+    font-size: 8px;
+  }
+
+  .info-row-bot .desc {
+    max-width: 90px;
+    font-size: 8px;
+  }
 }

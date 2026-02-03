@@ -53,9 +53,9 @@ const CONFIG = {
     BUFFER_SIZE: 5,
     MAX_VELOCITY: 150,
     SNAP_DURATION: 500,
+    MAX_SCROLL_DISTANCE: 4, // Maximum items to scroll through before allowing page scroll
 };
 
-// Utility functions
 const lerp = (start: number, end: number, factor: number) =>
     start + (end - start) * factor;
 
@@ -82,7 +82,6 @@ export default function InfiniteScrollDishes() {
         max: CONFIG.BUFFER_SIZE,
     });
 
-    // Refs for state that changes frequently (animation loop)
     const state = React.useRef({
         currentY: 0,
         targetY: 0,
@@ -91,17 +90,16 @@ export default function InfiniteScrollDishes() {
         snapStart: { time: 0, y: 0, target: 0 },
         lastScrollTime: Date.now(),
         dragStart: { y: 0, scrollY: 0 },
-        projectHeight: 0, // Will be set on mount
-        minimapHeight: 400, // Matching the CSS height of .minimap
+        projectHeight: 0,
+        minimapHeight: 400,
+        scrollCount: 0, // Track how many items we've scrolled
     });
 
-    // Refs to store DOM elements
     const projectsRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
     const minimapRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
     const infoRef = React.useRef<Map<number, HTMLDivElement>>(new Map());
     const requestRef = React.useRef<number | null>(null);
 
-    // Helper to update parallax for a single item
     const updateParallax = (
         img: HTMLImageElement | null,
         scroll: number,
@@ -115,7 +113,6 @@ export default function InfiniteScrollDishes() {
         }
 
         let current = parseFloat(img.dataset.parallaxCurrent);
-        // Modified parallax math for vertical seamless loop feeling
         const target = (-scroll - index * height) * 0.2;
         current = lerp(current, target, 0.1);
 
@@ -154,7 +151,6 @@ export default function InfiniteScrollDishes() {
         if (s.projectHeight === 0) return;
         const minimapY = (s.currentY * s.minimapHeight) / s.projectHeight;
 
-        // Update Projects
         projectsRef.current.forEach((el, index) => {
             const y = index * s.projectHeight + s.currentY;
             el.style.transform = `translateY(${y}px)`;
@@ -162,7 +158,6 @@ export default function InfiniteScrollDishes() {
             updateParallax(img, s.currentY, index, s.projectHeight);
         });
 
-        // Update Minimap Images
         minimapRef.current.forEach((el, index) => {
             const y = index * s.minimapHeight + minimapY;
             el.style.transform = `translateY(${y}px)`;
@@ -172,7 +167,6 @@ export default function InfiniteScrollDishes() {
             }
         });
 
-        // Update Info
         infoRef.current.forEach((el, index) => {
             const y = index * s.minimapHeight + minimapY;
             el.style.transform = `translateY(${y}px)`;
@@ -222,20 +216,24 @@ export default function InfiniteScrollDishes() {
     React.useEffect(() => {
         state.current.projectHeight = window.innerHeight;
 
-        // Mouse Wheel
         const onWheel = (e: WheelEvent) => {
-            e.preventDefault();
             const s = state.current;
-            s.isSnapping = false;
-            s.lastScrollTime = Date.now();
-            const delta = Math.max(
-                Math.min(e.deltaY * CONFIG.SCROLL_SPEED, CONFIG.MAX_VELOCITY),
-                -CONFIG.MAX_VELOCITY
-            );
-            s.targetY -= delta;
+            const currentIndex = Math.round(-s.targetY / s.projectHeight);
+
+            // Only prevent default if we're within the scroll range
+            if (Math.abs(currentIndex) < CONFIG.MAX_SCROLL_DISTANCE) {
+                e.preventDefault();
+                s.isSnapping = false;
+                s.lastScrollTime = Date.now();
+                const delta = Math.max(
+                    Math.min(e.deltaY * CONFIG.SCROLL_SPEED, CONFIG.MAX_VELOCITY),
+                    -CONFIG.MAX_VELOCITY
+                );
+                s.targetY -= delta;
+            }
+            // Otherwise, let the default scroll happen to move to next section
         };
 
-        // Touch Events
         const onTouchStart = (e: TouchEvent) => {
             const s = state.current;
             s.isDragging = true;
@@ -247,13 +245,15 @@ export default function InfiniteScrollDishes() {
         const onTouchMove = (e: TouchEvent) => {
             const s = state.current;
             if (!s.isDragging) return;
-            // Prevent default to avoid browser elastic scrolling
-            if (e.cancelable) e.preventDefault();
 
-            s.targetY =
-                s.dragStart.scrollY +
-                (e.touches[0].clientY - s.dragStart.y) * 1.5;
-            s.lastScrollTime = Date.now();
+            const currentIndex = Math.round(-s.targetY / s.projectHeight);
+            if (Math.abs(currentIndex) < CONFIG.MAX_SCROLL_DISTANCE) {
+                if (e.cancelable) e.preventDefault();
+                s.targetY =
+                    s.dragStart.scrollY +
+                    (e.touches[0].clientY - s.dragStart.y) * 1.5;
+                s.lastScrollTime = Date.now();
+            }
         }
 
         const onTouchEnd = () => {
@@ -280,7 +280,6 @@ export default function InfiniteScrollDishes() {
         window.addEventListener("resize", onResize);
         onResize();
 
-        // Start Loop
         requestRef.current = requestAnimationFrame(animationLoop);
 
         return () => {
@@ -295,7 +294,6 @@ export default function InfiniteScrollDishes() {
         };
     }, []);
 
-    // Generate range of indices
     const indices = [];
     for (let i = visibleRange.min; i <= visibleRange.max; i++) {
         indices.push(i);
@@ -326,7 +324,6 @@ export default function InfiniteScrollDishes() {
 
             <div className="minimap z-40">
                 <div className="minimap-wrapper">
-                    {/* Images Column */}
                     <div className="minimap-img-preview">
                         {indices.map((i) => {
                             const data = getDishData(i);
@@ -345,7 +342,6 @@ export default function InfiniteScrollDishes() {
                         })}
                     </div>
 
-                    {/* Info Column (Now overlaying the whole card) */}
                     <div className="minimap-info-list">
                         {indices.map((i) => {
                             const data = getDishData(i);
@@ -359,22 +355,18 @@ export default function InfiniteScrollDishes() {
                                         else infoRef.current.delete(i);
                                     }}
                                 >
-                                    {/* Top Row: Index & Title */}
                                     <div className="info-row-top">
                                         <span>{num}</span>
                                         <span className="title">{data.title}</span>
                                     </div>
 
-                                    {/* Mid Row: Category & Price */}
                                     <div className="info-row-mid">
                                         <span>{data.category}</span>
                                         <span>{data.price}</span>
                                     </div>
 
-                                    {/* Bot Row: Description & (Next Item Hint if needed) */}
                                     <div className="info-row-bot">
                                         <span className="desc">{data.description}</span>
-                                        {/* Optional: Add next item name as hint if desired, otherwise empty or simple label */}
                                         <span className="next-hint">SURAPANA 2026</span>
                                     </div>
                                 </div>

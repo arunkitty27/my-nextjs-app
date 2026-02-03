@@ -5,6 +5,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Surapana TeaCafe | Campus Chill Zone",
   description: "The ultimate chill spot at NLSIU Bengaluru. Great tea, coffee, burgers, and vibes for students.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({
