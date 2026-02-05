@@ -21,21 +21,21 @@ function MenuItem({ title, img, desc, rating, className, badge, index }: MenuIte
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true, margin: "-50px" }}
-            className={`relative group overflow-hidden rounded-[2rem] bg-[#1a1816] border border-white/5 hover:border-[#C4B5A5]/20 transition-all duration-500 ${className}`}
+            className={`relative group overflow-hidden rounded-[2rem] bg-[#F9F9F9] border border-black/5 hover:border-[#D4AF37]/20 transition-all duration-500 shadow-md hover:shadow-xl ${className}`}
         >
             <div className="absolute inset-0 w-full h-full z-0">
                 <Image
                     src={img}
                     alt={title}
                     fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-50 group-hover:opacity-30 grayscale group-hover:grayscale-0"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#12100E] via-[#12100E]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent" />
             </div>
 
             <div className="relative z-10 h-full flex flex-col justify-end p-8">
                 {badge && (
-                    <div className="absolute top-6 right-6 bg-[#C4B5A5] text-[#12100E] text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm">
+                    <div className="absolute top-6 right-6 bg-[#D4AF37] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-sm shadow-sm">
                         {badge}
                     </div>
                 )}
@@ -46,14 +46,14 @@ function MenuItem({ title, img, desc, rating, className, badge, index }: MenuIte
                             <Star
                                 key={i}
                                 size={12}
-                                className={`${i < rating ? "text-[#C4B5A5] fill-[#C4B5A5]" : "text-white/10 fill-white/10"}`}
+                                className={`${i < rating ? "text-[#D4AF37] fill-[#D4AF37]" : "text-black/10 fill-black/10"}`}
                             />
                         ))}
                     </div>
 
-                    <h3 className="text-3xl font-heading text-[#EBE5CE] mb-2 leading-tight tracking-wide">{title}</h3>
+                    <h3 className="text-3xl font-heading text-[#1F1F1F] mb-2 leading-tight tracking-wide">{title}</h3>
 
-                    <p className="text-[#9C9687] text-sm max-w-[90%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-4 line-clamp-2 font-serif italic">
+                    <p className="text-[#6B5E51] text-sm max-w-[90%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-4 line-clamp-2 font-serif italic">
                         {desc}
                     </p>
 
@@ -102,22 +102,22 @@ export default function MenuSection() {
     ];
 
     return (
-        <section id="menu" className="py-32 relative z-10 w-full bg-[#12100E]">
+        <section id="menu" className="py-32 relative z-10 w-full bg-[#FFFFFF]">
             <div className="page-container">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div>
-                        <span className="text-[#C4B5A5] font-bold tracking-[0.2em] text-xs uppercase mb-4 block flex items-center gap-2">
-                            <span className="w-8 h-[1px] bg-[#C4B5A5]"></span> Top Picks
+                        <span className="text-[#D4AF37] font-bold tracking-[0.2em] text-xs uppercase mb-4 block flex items-center gap-2">
+                            <span className="w-8 h-[1px] bg-[#D4AF37]"></span> Top Picks
                         </span>
-                        <h2 className="text-5xl md:text-7xl font-heading font-bold text-white leading-none">
-                            FLAVOR <br /> <span className="text-[#9C9687] italic font-serif">DROPS.</span>
+                        <h2 className="text-5xl md:text-7xl font-heading font-bold text-[#1F1F1F] leading-none">
+                            FLAVOR <br /> <span className="text-[#D4AF37] italic font-serif">DROPS.</span>
                         </h2>
                     </div>
                     <div className="max-w-xs text-right">
-                        <p className="text-white/50 text-sm leading-relaxed mb-4">
+                        <p className="text-[#1F1F1F]/60 text-sm leading-relaxed mb-4">
                             Curated specifically for the discerning taste buds of the future legal minds.
                         </p>
-                        <CornerDownRight className="ml-auto text-gold mb-2" size={32} />
+                        <CornerDownRight className="ml-auto text-[#D4AF37] mb-2" size={32} />
                     </div>
                 </div>
 
@@ -131,13 +131,13 @@ export default function MenuSection() {
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="md:col-span-1 flex items-center justify-center p-8 border border-dashed border-white/20 rounded-[2rem]"
+                        className="md:col-span-1 flex items-center justify-center p-8 border border-dashed border-black/20 rounded-[2rem]"
                     >
                         <a href="/assets/menu.webp" target="_blank" className="group text-center cursor-pointer">
-                            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold group-hover:text-black transition-colors duration-300">
+                            <div className="w-16 h-16 rounded-full bg-black/5 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#D4AF37] group-hover:text-white transition-colors duration-300">
                                 <ArrowRight size={24} className="group-hover:-rotate-45 transition-transform duration-300" />
                             </div>
-                            <span className="text-white font-bold text-lg block group-hover:underline decoration-gold underline-offset-4">View Full Menu</span>
+                            <span className="text-[#1F1F1F] font-bold text-lg block group-hover:underline decoration-[#D4AF37] underline-offset-4">View Full Menu</span>
                         </a>
                     </motion.div>
                 </div>

@@ -14,20 +14,20 @@ html {
 
 
 @theme {
-  --color-canvas: #12100E;
-  --color-ink: #EBE5CE;
-  --color-ink-muted: #9C9687;
-  --color-sand: #C4B5A5;
+  --color-canvas: #FFFFFF;
+  --color-ink: #1F1F1F;
+  --color-ink-muted: #6B5E51;
+  --color-sand: #D4AF37;
 
   --font-heading: "Cinzel Decorative", cursive;
   --font-body: "Quicksand", sans-serif;
 }
 
 :root {
-  --bg-dark: #12100E;
-  --text-main: #EBE5CE;
-  --text-muted: #9C9687;
-  --accent: #C4B5A5;
+  --bg-dark: #FFFFFF;
+  --text-main: #1F1F1F;
+  --text-muted: #6B5E51;
+  --accent: #D4AF37;
 }
 
 body {
@@ -41,7 +41,7 @@ body {
   position: relative;
 }
 
-/* FILM GRAIN OVERLAY for Aesthetic */
+/* FILM GRAIN OVERLAY for Aesthetic - Darker grain for white bg */
 body::after {
   content: "";
   position: fixed;
@@ -51,7 +51,7 @@ body::after {
   height: 100%;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.04;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
 }
 
@@ -63,7 +63,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--text-main);
+  color: #1F1F1F;
   font-weight: 400;
   letter-spacing: 0.05em;
 }
@@ -78,9 +78,10 @@ h6 {
 
 /* Glass Card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 /* Scrollbar */
@@ -89,16 +90,16 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #12100E;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3E3B36;
+  background: #D4AF37;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: #B59326;
 }
 
 /* Navbar Logo */
@@ -113,7 +114,7 @@ img {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #12100E;
+  background: #FFFFFF;
 }
 
 .project-list {

@@ -27,8 +27,8 @@ export default function TeaCultureSection() {
                         sizes="100vw"
                         className="object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-1000"
                     />
-                    <div className="absolute inset-0 bg-[#12100E]/60 mix-blend-multiply" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#12100E] via-transparent to-[#12100E]" />
+                    <div className="absolute inset-0 bg-[#FFFFFF]/60 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF] via-transparent to-[#FFFFFF]" />
                 </motion.div>
             </div>
 
@@ -45,32 +45,32 @@ export default function TeaCultureSection() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative z-10 w-full max-w-4xl mx-auto text-center px-4"
             >
-                <div className="glass-card p-6 md:p-12 lg:p-16 rounded-[2px]">
-                    <span className="text-[#C4B5A5] text-xs font-bold tracking-[0.3em] uppercase mb-4 md:mb-6 block">
+                <div className="glass-card p-6 md:p-12 lg:p-16 rounded-[2px] shadow-lg border border-gold/10">
+                    <span className="text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase mb-4 md:mb-6 block">
                         The Ritual
                     </span>
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-[#EBE5CE] mb-6 md:mb-8 leading-tight px-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading text-[#1F1F1F] mb-6 md:mb-8 leading-tight px-2">
                         "Tea is the thread that weaves <br className="hidden md:block" />
-                        moments of <span className="text-[#C4B5A5] italic font-serif">tranquility.</span>"
+                        moments of <span className="text-[#D4AF37] italic font-serif">tranquility.</span>"
                     </h2>
-                    <p className="text-[#9C9687] text-sm md:text-base lg:text-lg leading-relaxed font-serif italic max-w-2xl mx-auto px-2">
+                    <p className="text-[#6B5E51] text-sm md:text-base lg:text-lg leading-relaxed font-serif italic max-w-2xl mx-auto px-2">
                         In the stillness of a teacup, worries dissolve. It is not just a drink, but a gentle reminder to slow down, breathe, and find clarity in the chaos. At Surapana, every cup is brewed with the intent to heal.
                     </p>
 
                     <div className="mt-8 md:mt-12 flex flex-wrap justify-center gap-6 md:gap-12">
                         <div className="flex flex-col items-center">
-                            <span className="text-xl md:text-2xl font-heading text-[#C4B5A5] mb-1 md:mb-2">95°C</span>
-                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#EBE5CE]/50">Brewing Temp</span>
+                            <span className="text-xl md:text-2xl font-heading text-[#D4AF37] mb-1 md:mb-2">95°C</span>
+                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#1F1F1F]/50">Brewing Temp</span>
                         </div>
-                        <div className="w-[1px] h-10 md:h-12 bg-white/10" />
+                        <div className="w-[1px] h-10 md:h-12 bg-black/10" />
                         <div className="flex flex-col items-center">
-                            <span className="text-xl md:text-2xl font-heading text-[#C4B5A5] mb-1 md:mb-2">3 Mins</span>
-                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#EBE5CE]/50">Steep Time</span>
+                            <span className="text-xl md:text-2xl font-heading text-[#D4AF37] mb-1 md:mb-2">3 Mins</span>
+                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#1F1F1F]/50">Steep Time</span>
                         </div>
-                        <div className="w-[1px] h-10 md:h-12 bg-white/10" />
+                        <div className="w-[1px] h-10 md:h-12 bg-black/10" />
                         <div className="flex flex-col items-center">
-                            <span className="text-xl md:text-2xl font-heading text-[#C4B5A5] mb-1 md:mb-2">∞</span>
-                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#EBE5CE]/50">Peace Found</span>
+                            <span className="text-xl md:text-2xl font-heading text-[#D4AF37] mb-1 md:mb-2">∞</span>
+                            <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-[#1F1F1F]/50">Peace Found</span>
                         </div>
                     </div>
                 </div>

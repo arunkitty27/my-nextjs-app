@@ -7,18 +7,18 @@ import LocationFooter from "./components/LocationFooter";
 import ScrollExpandMedia from "./components/ScrollExpandMedia";
 import TeaCultureSection from "./components/TeaCultureSection";
 import StressReliefSection from "./components/StressReliefSection";
+import TeaCoffeePuzzle from "./components/TeaCoffeePuzzle";
+import ChaiSpillChallenge from "./components/ChaiSpillChallenge";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="relative bg-[#12100E] text-[#EBE5CE] selection:bg-[#C4B5A5] selection:text-black">
+    <main className="relative bg-[#FFFFFF] text-[#1F1F1F] selection:bg-[#D4AF37] selection:text-white">
       <Navbar />
 
       <ScrollExpandMedia
-        mediaType="video"
-        mediaSrc="/assets/hero-video.mp4"
-        bgImageSrc="/assets/hero_background.jpg"
-        title="SURA PANA"
+        mediaType="image"
+        title="SURAPANA"
         scrollToExpand="SCROLL TO EXPLORE"
         heroContent={
           <div className="flex gap-6 items-center">
@@ -39,22 +39,25 @@ export default function Home() {
                   }, 100);
                 }
               }}
-              className="group flex items-center gap-4 text-white hover:text-[#C4B5A5] transition-colors font-heading text-xl cursor-pointer"
+              className="group flex items-center gap-4 text-[#1F1F1F] hover:text-[#D4AF37] transition-colors font-heading text-xl cursor-pointer"
             >
-              <span className="border-b border-white group-hover:border-[#C4B5A5] transition-all duration-500">Dive Into The Vibe</span>
-              <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:border-[#C4B5A5] group-hover:bg-[#C4B5A5] group-hover:text-black transition-all duration-500">
+              <span className="border-b border-[#1F1F1F] group-hover:border-[#D4AF37] transition-all duration-500">Dive Into The Vibe</span>
+              <div className="w-12 h-12 rounded-full border border-[#1F1F1F]/30 flex items-center justify-center group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-500">
                 <ArrowRight size={20} className="group-hover:-rotate-45 transition-transform" />
               </div>
             </a>
           </div>
         }
       >
-        <div className="relative z-10 space-y-0 bg-[#12100E] min-h-screen">
+        <div className="relative z-10 space-y-0 bg-[#FFFFFF] min-h-screen">
           <MenuSection />
           <TeaCultureSection />
           <InfiniteScrollDishes />
           <StressReliefSection />
+          <TeaCoffeePuzzle />
+          <ChaiSpillChallenge />
           <KarmaPillars />
+
           <LocationFooter />
         </div>
       </ScrollExpandMedia>

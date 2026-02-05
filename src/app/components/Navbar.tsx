@@ -26,14 +26,14 @@ export default function Navbar() {
         <>
             <nav
                 className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${scrolled
-                    ? 'bg-[#0a0a0a]/90 backdrop-blur-xl border-white/5 py-3'
+                    ? 'bg-[#FFFFFF]/90 backdrop-blur-xl border-black/5 py-3 shadow-sm'
                     : 'bg-transparent border-transparent py-6'
                     }`}
             >
                 <div className="page-container flex justify-between items-center">
                     {/* Brand Logo & Name */}
                     <a href="#" className="flex items-center gap-4 group">
-                        <div className={`relative rounded-full overflow-hidden border border-white/10 transition-all duration-300 ${scrolled ? 'w-10 h-10' : 'w-12 h-12 md:w-14 md:h-14'}`}>
+                        <div className={`relative rounded-full overflow-hidden border border-black/10 transition-all duration-300 ${scrolled ? 'w-10 h-10' : 'w-12 h-12 md:w-14 md:h-14'}`}>
                             <img
                                 src="/assets/logo.jpg"
                                 alt="Surapana Logo"
@@ -41,10 +41,10 @@ export default function Navbar() {
                             />
                         </div>
                         <div className="flex flex-col">
-                            <span className={`font-heading text-[#EBE5CE] leading-none tracking-widest transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl md:text-2xl'}`}>
+                            <span className={`font-heading text-[#1F1F1F] leading-none tracking-widest transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl md:text-2xl'}`}>
                                 SURAPANA
                             </span>
-                            <span className={`text-[10px] uppercase tracking-[0.3em] text-[#9C9687] hidden sm:block transition-all ${scrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+                            <span className={`text-[10px] uppercase tracking-[0.3em] text-[#6B5E51] hidden sm:block transition-all ${scrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
                                 Tea Cafe
                             </span>
                         </div>
@@ -71,10 +71,10 @@ export default function Navbar() {
                                         }, 100);
                                     }
                                 }}
-                                className="text-sm uppercase tracking-widest text-[#EBE5CE]/70 hover:text-[#EBE5CE] transition-colors duration-300 font-medium relative group py-2"
+                                className="text-sm uppercase tracking-widest text-[#1F1F1F]/70 hover:text-[#D4AF37] transition-colors duration-300 font-medium relative group py-2"
                             >
                                 {link.name}
-                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#EBE5CE] transition-all duration-300 group-hover:w-full opacity-50 group-hover:opacity-100" />
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[#D4AF37] transition-all duration-300 group-hover:w-full opacity-50 group-hover:opacity-100" />
                             </a>
                         ))}
                     </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-dark-bg/95 backdrop-blur-xl flex items-center justify-center md:hidden"
+                        className="fixed inset-0 z-40 bg-[#FFFFFF]/95 backdrop-blur-xl flex items-center justify-center md:hidden"
                     >
                         <div className="flex flex-col items-center gap-8">
                             {navLinks.map((link) => (
@@ -118,7 +118,7 @@ export default function Navbar() {
                                             }, 100);
                                         }
                                     }}
-                                    className="text-3xl font-heading text-white hover:text-gold transition-colors"
+                                    className="text-3xl font-heading text-[#1F1F1F] hover:text-[#D4AF37] transition-colors"
                                 >
                                     {link.name}
                                 </a>
@@ -126,7 +126,7 @@ export default function Navbar() {
                             <div className="w-12 h-[2px] bg-white/10 mt-4" />
                             <button
                                 onClick={() => setIsMenuOpen(false)}
-                                className="text-white/50 text-sm uppercase tracking-widest mt-4"
+                                className="text-[#1F1F1F]/50 text-sm uppercase tracking-widest mt-4"
                             >
                                 Close
                             </button>

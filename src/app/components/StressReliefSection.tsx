@@ -34,7 +34,7 @@ const comfortImages = [
 
 export default function StressReliefSection() {
     return (
-        <section id="chill-zone" className="py-16 md:py-24 relative z-10 w-full bg-[#12100E]">
+        <section id="chill-zone" className="py-16 md:py-24 relative z-10 w-full bg-[#FFFFFF]">
             <div className="page-container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -43,13 +43,13 @@ export default function StressReliefSection() {
                     viewport={{ once: true }}
                     className="mb-16 md:mb-20 text-center max-w-3xl mx-auto px-4"
                 >
-                    <span className="text-[#C4B5A5] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
+                    <span className="text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                         Stress Relief
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-[#EBE5CE] mb-4 md:mb-6">
-                        Good Food, <span className="text-[#C4B5A5] italic">Better Mood.</span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-[#1F1F1F] mb-4 md:mb-6">
+                        Good Food, <span className="text-[#D4AF37] italic">Better Mood.</span>
                     </h2>
-                    <p className="text-[#9C9687] text-sm md:text-base leading-relaxed">
+                    <p className="text-[#6B5E51] text-sm md:text-base leading-relaxed">
                         Exams, deadlines, life... leave them at the door. Our space is designed to be your sanctuary.
                         Let the aroma of fresh brew and the comfort of our cheesiest burgers reset your dopamine levels.
                     </p>
@@ -81,8 +81,8 @@ export default function StressReliefSection() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 group-active:from-black/40 transition-all duration-500 ease-out" />
 
                             {/* Quote Overlay - shows on hover/tap on both mobile and desktop */}
-                            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-500 ease-out bg-black/70 backdrop-blur-sm">
-                                <p className="text-white text-lg md:text-xl lg:text-2xl font-heading text-center leading-normal drop-shadow-2xl transform scale-90 group-hover:scale-100 group-active:scale-100 transition-transform duration-500">
+                            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-500 ease-out bg-white/80 backdrop-blur-sm">
+                                <p className="text-[#1F1F1F] text-lg md:text-xl lg:text-2xl font-heading text-center leading-normal drop-shadow-sm transform scale-90 group-hover:scale-100 group-active:scale-100 transition-transform duration-500">
                                     "{item.quote}"
                                 </p>
                             </div>

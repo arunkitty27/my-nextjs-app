@@ -42,16 +42,16 @@ const TeaHealing = ({
         >
             <defs>
                 <radialGradient id="ray-glow-1">
-                    <stop offset="0%" stopColor="#C4B5A5" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#C4B5A5" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient id="ray-glow-2">
-                    <stop offset="0%" stopColor="#9C9687" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#9C9687" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#C5A028" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#C5A028" stopOpacity="0" />
                 </radialGradient>
                 <radialGradient id="ray-glow-3">
-                    <stop offset="0%" stopColor="#8A7E68" stopOpacity="0.7" />
-                    <stop offset="100%" stopColor="#8A7E68" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#B38F1D" stopOpacity="0.7" />
+                    <stop offset="100%" stopColor="#B38F1D" stopOpacity="0" />
                 </radialGradient>
 
                 <filter id="tea-glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -85,7 +85,8 @@ const TeaHealing = ({
                 </linearGradient>
             </defs>
 
-            <circle cx="200" cy="200" r="180" fill="#12100E" opacity="0.3" />
+            {/* Removed the grey circle background as requested */}
+            {/* <circle cx="200" cy="200" r="180" fill="#12100E" opacity="0.3" /> */}
 
             {negativeWords.map((word, index) => {
                 const cupCenterX = 200;
@@ -141,12 +142,12 @@ const TeaHealing = ({
                     x={word.x}
                     y={word.y}
                     fontSize="14"
-                    fill="#9C9687"
+                    fill="#1F1F1F"
                     fontFamily="'Quicksand', sans-serif"
                     fontWeight="600"
                     letterSpacing="0.15em"
                     textAnchor="middle"
-                    opacity="0.7"
+                    opacity="0.8"
                 >
                     {word.text}
                     <animate
@@ -246,7 +247,7 @@ const TeaHealing = ({
                 x="200"
                 y="390"
                 fontSize="9"
-                fill="#C4B5A5"
+                fill="#D4AF37"
                 fontFamily="'Cinzel Decorative', serif"
                 textAnchor="middle"
                 letterSpacing="0.3em"
