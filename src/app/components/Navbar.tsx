@@ -19,6 +19,7 @@ export default function Navbar() {
         { name: "The Vibe", href: "#vibe" },
         { name: "Top Picks", href: "#menu" },
         { name: "Chill Zone", href: "#chill-zone" },
+        { name: "Game Zone", href: "#game-zone" },
         { name: "Find Us", href: "#location" },
     ];
 

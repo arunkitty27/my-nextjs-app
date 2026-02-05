@@ -103,7 +103,7 @@ export default function TeaCoffeePuzzle() {
     };
 
     return (
-        <section className="py-24 w-full bg-[#FAFAFA] relative overflow-hidden">
+        <section id="game-zone" className="py-24 w-full bg-[#FAFAFA] relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full blur-3xl" />

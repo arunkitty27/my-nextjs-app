@@ -1,34 +1,27 @@
 "use client";
 import { motion } from "framer-motion";
+import { Smile, Heart, Sparkles, Coffee } from "lucide-react";
 
-const comfortImages = [
+const comfortQuotes = [
     {
-        src: "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&auto=format&fit=crop",
-        alt: "Friends Laughing in Cafe",
         quote: "Laughter is brightest where food is best.",
+        icon: Smile,
         col: "md:col-span-2",
-        aspect: "aspect-[16/9]"
     },
     {
-        src: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop",
-        alt: "Comfort Food Wings",
         quote: "Food is a warm hug.",
+        icon: Heart,
         col: "md:col-span-1",
-        aspect: "aspect-square"
     },
     {
-        src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop",
-        alt: "Aesthetic Coffee Vibes",
         quote: "Good food is the foundation of genuine happiness.",
+        icon: Sparkles,
         col: "md:col-span-1",
-        aspect: "aspect-square"
     },
     {
-        src: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=800&auto=format&fit=crop",
-        alt: "Quiet Reading with Tea",
         quote: "One cannot think well, love well, sleep well, if one has not dined well.",
+        icon: Coffee,
         col: "md:col-span-2",
-        aspect: "aspect-[16/9]"
     }
 ];
 
@@ -56,38 +49,38 @@ export default function StressReliefSection() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-4">
-                    {comfortImages.map((item, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.7,
-                                delay: i * 0.1,
-                                ease: [0.25, 0.1, 0.25, 1]
-                            }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            className={`relative group overflow-hidden rounded-[2px] ${item.col} ${item.aspect} min-h-[200px] cursor-pointer`}
-                        >
-                            {/* Regular img tag for better compatibility */}
-                            <img
-                                src={item.src}
-                                alt={item.alt}
-                                className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-active:scale-110 grayscale-[0.3] group-hover:grayscale-0 group-active:grayscale-0"
-                                loading={i === 0 ? "eager" : "lazy"}
-                            />
+                    {comfortQuotes.map((item, i) => {
+                        const IconComponent = item.icon;
+                        return (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.7,
+                                    delay: i * 0.1,
+                                    ease: [0.25, 0.1, 0.25, 1]
+                                }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                className={`relative group overflow-hidden rounded-2xl ${item.col} min-h-[280px] cursor-pointer bg-gradient-to-br from-[#D4AF37] to-[#B8941F] border-2 border-[#D4AF37] hover:scale-[1.02] transition-transform duration-500`}
+                            >
+                                {/* Quote Content */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 md:p-10 text-center">
+                                    {/* Icon decoration */}
+                                    <div className="mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                        <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-white" strokeWidth={1.5} />
+                                    </div>
 
-                            {/* Gradient Overlay - works on mobile tap and desktop hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 group-active:from-black/40 transition-all duration-500 ease-out" />
+                                    <p className="text-white text-xl md:text-2xl lg:text-3xl font-serif italic leading-relaxed transform group-hover:scale-105 transition-transform duration-500">
+                                        "{item.quote}"
+                                    </p>
+                                </div>
 
-                            {/* Quote Overlay - shows on hover/tap on both mobile and desktop */}
-                            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-all duration-500 ease-out bg-white/80 backdrop-blur-sm">
-                                <p className="text-[#1F1F1F] text-lg md:text-xl lg:text-2xl font-heading text-center leading-normal drop-shadow-sm transform scale-90 group-hover:scale-100 group-active:scale-100 transition-transform duration-500">
-                                    "{item.quote}"
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
+                                {/* Hover glow effect */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

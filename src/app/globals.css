@@ -218,7 +218,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--text-main);
+  color: #1F1F1F;
 }
 
 /* Info Rows */
@@ -237,7 +237,10 @@ img {
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.1em;
-  opacity: 0.6;
+  opacity: 0.8;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 .info-row-top .title {
@@ -245,22 +248,30 @@ img {
   font-size: 20px;
   text-align: right;
   max-width: 280px;
-  color: var(--text-main);
+  color: #1F1F1F;
   opacity: 1;
+  font-weight: 600;
 }
 
 .info-row-mid {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: var(--text-muted);
+  color: #D4AF37;
+  opacity: 1;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 .info-row-bot {
   align-items: flex-end;
   font-size: 13px;
   font-weight: 400;
-  color: var(--text-main);
+  color: #1F1F1F;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 .info-row-bot .desc {
@@ -268,15 +279,16 @@ img {
   line-height: 1.7;
   font-style: italic;
   font-family: serif;
-  color: var(--text-muted);
+  color: #6B5E51;
 }
 
 .info-row-bot .next-hint {
   text-align: right;
-  color: var(--accent);
+  color: #D4AF37;
   font-size: 9px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  opacity: 1;
 }
 
 /* Mobile Responsive Styles */

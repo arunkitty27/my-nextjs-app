@@ -118,28 +118,28 @@ export default function ChaiSpillChallenge() {
     };
 
     return (
-        <section className="py-20 w-full bg-[#FFF7ED] text-[#431407] font-sans relative overflow-hidden">
+        <section className="py-20 w-full bg-[#FFFFFF] text-[#1F1F1F] font-sans relative overflow-hidden">
             {/* Background Decorative Blobs */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-amber-200/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#F2DAC4]/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center max-w-2xl">
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <span className="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-700 text-xs font-bold tracking-widest uppercase mb-3">
+                    <span className="inline-block py-1 px-3 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold tracking-widest uppercase mb-3">
                         Fun Zone
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-[#78350F] mb-3">
-                        The <span className="text-orange-600">Chai Spill</span> Challenge
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-[#1F1F1F] mb-3">
+                        The <span className="text-[#D4AF37]">Chai Spill</span> Challenge
                     </h2>
-                    <p className="text-orange-900/70 text-lg">
+                    <p className="text-[#6B5E51] text-lg">
                         Fill the cup above 96% without spilling to win!
                     </p>
                 </div>
 
                 {/* Game Container */}
-                <div className="relative w-full max-w-sm aspect-[4/5] bg-white rounded-[2.5rem] shadow-2xl border-4 border-orange-50 flex flex-col items-center justify-center p-8 overflow-hidden">
+                <div className="relative w-full max-w-sm aspect-[4/5] bg-white rounded-[2.5rem] shadow-2xl border-4 border-[#D4AF37]/20 flex flex-col items-center justify-center p-8 overflow-hidden">
 
                     {/* Shake Animation Wrapper */}
                     <motion.div
@@ -151,7 +151,7 @@ export default function ChaiSpillChallenge() {
                         {/* SVG Cup */}
                         <svg viewBox="0 0 200 240" className="w-full h-full drop-shadow-xl">
                             {/* Cup Handle */}
-                            <path d="M 160 60 C 190 60 190 120 160 120" fill="none" stroke="#D97706" strokeWidth="12" strokeLinecap="round" />
+                            <path d="M 160 60 C 190 60 190 120 160 120" fill="none" stroke="#D4AF37" strokeWidth="12" strokeLinecap="round" />
 
                             {/* Cup Body (Mask for Liquid) */}
                             <defs>
@@ -165,7 +165,7 @@ export default function ChaiSpillChallenge() {
                             </defs>
 
                             {/* Glass/Cup Outline */}
-                            <path d="M 20 20 L 40 200 C 45 220 155 220 160 200 L 180 20" fill="rgba(255,255,255,0.9)" stroke="#78350F" strokeWidth="4" />
+                            <path d="M 20 20 L 40 200 C 45 220 155 220 160 200 L 180 20" fill="rgba(255,255,255,0.9)" stroke="#D4AF37" strokeWidth="4" />
 
                             {/* The Tea Liquid */}
                             <g mask="url(#cupMask)">
@@ -180,13 +180,13 @@ export default function ChaiSpillChallenge() {
                                     {/* Wave Surface - More Dynamic */}
                                     <motion.path
                                         d="M 0 240 Q 25 225, 50 240 T 100 240 T 150 240 T 200 240 V 480 H 0 Z"
-                                        fill="#D97706"
+                                        fill="#D4AF37"
                                         animate={{ x: [-50, 0] }}
                                         transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
                                         transform="translate(0, -10)"
                                     />
                                     {/* Main Body (Seamlessly connected to wave) */}
-                                    <rect x="0" y="239" width="300" height="240" fill="#D97706" />
+                                    <rect x="0" y="239" width="300" height="240" fill="#D4AF37" />
                                 </motion.g>
 
                                 {/* Pouring Stream (Thicker & Faster) */}
@@ -196,7 +196,7 @@ export default function ChaiSpillChallenge() {
                                             initial={{ height: 0 }}
                                             animate={{ height: 240 + (240 * (fillLevel / 100)) }} // Extends down into liquid
                                             exit={{ height: 0, opacity: 0 }}
-                                            x="92" y="0" width="16" fill="#D97706"
+                                            x="92" y="0" width="16" fill="#D4AF37"
                                             className="blur-[1px]" // Slight blur for liquid motion feel
                                         />
                                     )}
@@ -208,11 +208,11 @@ export default function ChaiSpillChallenge() {
                                         animate={{ y: 240 - (240 * (fillLevel / 100)) }} // Tracks surface
                                         className="pointer-events-none"
                                     >
-                                        <motion.circle cx="100" cy="0" r="3" fill="#D97706"
+                                        <motion.circle cx="100" cy="0" r="3" fill="#D4AF37"
                                             animate={{ y: [-5, -15], x: [0, -10], opacity: [1, 0] }}
                                             transition={{ repeat: Infinity, duration: 0.4 }}
                                         />
-                                        <motion.circle cx="100" cy="0" r="2" fill="#D97706"
+                                        <motion.circle cx="100" cy="0" r="2" fill="#D4AF37"
                                             animate={{ y: [-5, -12], x: [0, 10], opacity: [1, 0] }}
                                             transition={{ repeat: Infinity, duration: 0.3, delay: 0.1 }}
                                         />
@@ -234,12 +234,12 @@ export default function ChaiSpillChallenge() {
                             </g>
 
                             {/* Rim Highlight */}
-                            <ellipse cx="100" cy="20" rx="80" ry="10" fill="none" stroke="#78350F" strokeWidth="2" opacity="0.2" />
+                            <ellipse cx="100" cy="20" rx="80" ry="10" fill="none" stroke="#D4AF37" strokeWidth="2" opacity="0.3" />
                         </svg>
 
                         {/* Percentage Text */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <span className="text-4xl font-black text-amber-950 drop-shadow-sm opacity-80">
+                            <span className="text-4xl font-black text-[#1F1F1F] drop-shadow-sm opacity-90">
                                 {Math.round(fillLevel)}%
                             </span>
                         </div>
@@ -250,7 +250,7 @@ export default function ChaiSpillChallenge() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 0 }}
                                     animate={{ opacity: 1, y: 20 }}
-                                    className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-40 h-10 bg-[#D97706] rounded-full blur-md z-[-1]"
+                                    className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-40 h-10 bg-[#D4AF37] rounded-full blur-md z-[-1]"
                                 />
                             )}
                         </AnimatePresence>
@@ -261,7 +261,7 @@ export default function ChaiSpillChallenge() {
                         {status === 'idle' || status === 'won' || status === 'spilled' || status === 'failed' ? (
                             <button
                                 onClick={handleStart}
-                                className="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
+                                className="flex-1 bg-[#D4AF37] hover:bg-[#B8941F] text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
                             >
                                 {status === 'idle' ? <Play className="fill-white" /> : <RefreshCw />}
                                 {status === 'idle' ? "Start Brewing!" : "Try Again"}
@@ -269,7 +269,7 @@ export default function ChaiSpillChallenge() {
                         ) : (
                             <button
                                 onClick={handleStop}
-                                className="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
+                                className="flex-1 bg-[#1F1F1F] hover:bg-[#000000] text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
                             >
                                 <Hand /> Stop!
                             </button>
@@ -277,7 +277,7 @@ export default function ChaiSpillChallenge() {
                     </div>
 
                     {/* Status Message */}
-                    <div className="mt-4 h-6 text-center text-sm font-medium text-orange-800/60">
+                    <div className="mt-4 h-6 text-center text-sm font-medium text-[#6B5E51]">
                         {status === 'idle' && "Press Start to pour the chai."}
                         {status === 'filling' && "Stop between 96% and 100%!"}
                         {status === 'won' && "Perfect Pour! You Won!"}
@@ -305,13 +305,13 @@ export default function ChaiSpillChallenge() {
                         >
                             {/* Spill Header */}
                             <div className="text-center mb-8">
-                                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <AlertCircle className="text-red-600 w-8 h-8" />
+                                <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <AlertCircle className="text-[#D4AF37] w-8 h-8" />
                                 </div>
-                                <h3 className="text-3xl font-black text-red-600 mb-2">
+                                <h3 className="text-3xl font-black text-[#1F1F1F] mb-2">
                                     {status === 'spilled' ? "Oops! Spilled the Tea!" : "Too Weak!"}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-[#6B5E51]">
                                     {status === 'spilled' ? "You overflowed the cup." : "You didn't reach 96%."} Now face the consequences:
                                 </p>
                             </div>
@@ -320,17 +320,17 @@ export default function ChaiSpillChallenge() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <button
                                         onClick={() => pickCard('truth')}
-                                        className="aspect-square rounded-2xl bg-blue-50 border-2 border-blue-100 hover:border-blue-500 hover:bg-blue-100 transition-all flex flex-col items-center justify-center gap-3 group"
+                                        className="aspect-square rounded-2xl bg-[#F2DAC4]/30 border-2 border-[#D4AF37]/30 hover:border-[#D4AF37] hover:bg-[#F2DAC4]/50 transition-all flex flex-col items-center justify-center gap-3 group"
                                     >
                                         <span className="text-4xl group-hover:scale-110 transition-transform">😇</span>
-                                        <span className="font-bold text-blue-700 text-xl">Spill Truth</span>
+                                        <span className="font-bold text-[#D4AF37] text-xl">Spill Truth</span>
                                     </button>
                                     <button
                                         onClick={() => pickCard('dare')}
-                                        className="aspect-square rounded-2xl bg-orange-50 border-2 border-orange-100 hover:border-orange-500 hover:bg-orange-100 transition-all flex flex-col items-center justify-center gap-3 group"
+                                        className="aspect-square rounded-2xl bg-[#D4AF37]/10 border-2 border-[#D4AF37]/30 hover:border-[#D4AF37] hover:bg-[#D4AF37]/20 transition-all flex flex-col items-center justify-center gap-3 group"
                                     >
                                         <span className="text-4xl group-hover:scale-110 transition-transform">😈</span>
-                                        <span className="font-bold text-orange-700 text-xl">Accept Dare</span>
+                                        <span className="font-bold text-[#D4AF37] text-xl">Accept Dare</span>
                                     </button>
                                 </div>
                             ) : (
